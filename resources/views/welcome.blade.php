@@ -44,6 +44,7 @@
             min-height: 80vh;
             background: var(--dark);
             overflow: hidden;
+            padding-top: 80px;
         }
 
         .hero-bg {
@@ -219,310 +220,398 @@
         .lead {
             font-size: 1.1rem;
         }
+
+        .navbar {
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-dark {
+            background: rgba(15, 23, 42, 0.9) !important;
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar-brand img {
+            transition: all 0.3s ease;
+        }
+
+        .nav-link {
+            color: var(--light) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary) !important;
+        }
     </style>
 </head>
 
-<div class="mouse-cursor"></div>
-
-<!-- Hero Section -->
-<section class="hero-section">
-    <div class="hero-bg"></div>
-    <div class="hero-content">
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <h1 class="display-3 text-white fw-bold mb-4">
-                        Bienvenue chez <span class="gradient-text">Menji DRC</span>
-                    </h1>
-                    <p class="lead text-white-50 mb-5">
-                        Leader en solutions numériques innovantes, Menji DRC transforme
-                        vos idées en réalités digitales. Spécialisés dans la numérisation des écoles,
-                        hôpitaux et entreprises.
-                    </p>
-                    <div class="d-flex gap-3">
-                        <a href="#services" class="custom-btn btn btn-primary">
-                            Découvrir nos services
-                        </a>
-                        <a href="#contact" class="custom-btn btn btn-outline-light">
-                            Parlons de votre projet
-                        </a>
+            <a class="navbar-brand" href="#">
+                <img src="{{ asset('images/omego_logo.png') }}" alt="Menji DRC" height="30">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects">Gestion de Projet</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mouse-cursor"></div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <h1 class="display-3 text-white fw-bold mb-4">
+                            Bienvenue chez <span class="gradient-text">Menji DRC</span>
+                        </h1>
+                        <p class="lead text-white-50 mb-5">
+                            Bienvenue chez Menji Drc ! Nous sommes une équipe passionnée, spécialisée dans le
+                            développement de solutions numériques sur mesure pour répondre aux besoins des entreprises
+                            modernes. Explorez nos services et découvrez comment nous pouvons vous aider à atteindre vos
+                            objectifs.
+                        </p>
+                        <div class="d-flex gap-3">
+                            <a href="#services" class="custom-btn btn btn-primary">
+                                Découvrir nos services
+                            </a>
+                            <a href="#contact" class="custom-btn btn btn-outline-light">
+                                Parlons de votre projet
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <img src="{{ asset('images/hero-illustration.svg') }}" alt="Innovation" class="img-fluid">
                     </div>
                 </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <img src="{{ asset('images/hero-illustration.svg') }}" alt="Innovation" class="img-fluid">
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-6">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+                    <h2 class="display-4 fw-bold mb-4">Solutions <span class="gradient-text">Menji DRC</span>
+                    </h2>
+                    <p class="lead text-muted mb-5">
+                        Découvrez notre gamme complète de services numériques innovants,
+                        conçus pour propulser votre organisation vers l'avenir
+                    </p>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-
-<!-- Services Section -->
-<section id="services" class="py-6">
-    <div class="container">
-        <div class="row mb-5">
-            <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
-                <h2 class="display-4 fw-bold mb-4">Solutions <span class="gradient-text">Menji DRC</span>
-                </h2>
-                <p class="lead text-muted mb-5">
-                    Découvrez notre gamme complète de services numériques innovants,
-                    conçus pour propulser votre organisation vers l'avenir
-                </p>
-            </div>
-        </div>
-        <div class="row g-4">
-            <!-- Services Cards -->
-            @foreach([['icon' => 'graduation-cap', 'title' => 'Formation Professionnelle', 'description' => 'Programmes de formation spécialisés et certifiants pour développer les compétences de vos équipes.'], ['icon' => 'bullhorn', 'title' => 'Marketing Digital', 'description' => 'Stratégies marketing innovantes et solutions personnalisées pour maximiser votre présence en ligne.'], ['icon' => 'mobile-alt', 'title' => 'Applications Sur Mesure', 'description' => 'Développement d\'applications web et mobiles adaptées à vos besoins spécifiques.'], ['icon' => 'paint-brush', 'title' => 'Design & Création', 'description' => 'Création d\'interfaces modernes et ergonomiques pour une expérience utilisateur optimale.']] as $service)
-                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up">
                     <div class="service-card floating-card">
                         <div class="service-icon">
-                            <i class="fas fa-{{ $service['icon'] }}"></i>
+                            <i class="fas fa-code"></i>
                         </div>
-                        <h5 class="mb-3">{{ $service['title'] }}</h5>
-                        <p class="text-muted mb-0">{{ $service['description'] }}</p>
+                        <h5 class="mb-3">Développement Web</h5>
+                        <p class="text-muted mb-0">Nous créons des sites web dynamiques et performants, adaptés à votre
+                            entreprise. Que ce soit pour un site vitrine, une plateforme e-commerce ou une application
+                            web complexe, nous avons l'expertise pour vous accompagner.</p>
                     </div>
                 </div>
-            @endforeach
-        </div>
-    </div>
-</section>
-
-<!-- Stats Section -->
-<section class="py-6 bg-dark">
-    <div class="container">
-        <div class="row">
-            @foreach([['number' => '100+', 'label' => 'Projets Réalisés'], ['number' => '50+', 'label' => 'Clients Satisfaits'], ['number' => '5+', 'label' => 'Années d\'Excellence'], ['number' => '24/7', 'label' => 'Support Client']] as $stat)
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
-                    <div class="stats-card">
-                        <div class="stats-number">{{ $stat['number'] }}</div>
-                        <p class="text-muted mb-0">{{ $stat['label'] }}</p>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card floating-card">
+                        <div class="service-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h5 class="mb-3">Développement Mobile</h5>
+                        <p class="text-muted mb-0">Nous concevons des applications mobiles innovantes et intuitives pour
+                            vous aider à atteindre vos utilisateurs sur tous les appareils. De l'idée à la mise en
+                            ligne, nous vous guidons à chaque étape.</p>
                     </div>
                 </div>
-            @endforeach
-        </div>
-    </div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact" class="py-6">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8" data-aos="fade-up">
-                <div class="contact-form">
-                    <h2 class="text-center gradient-text mb-4">Contactez Menji DRC</h2>
-                    <p class="text-center text-muted mb-5">
-                        Prêt à démarrer votre transformation numérique ?
-                        Notre équipe d'experts est là pour vous accompagner.
-                    </p>
-                    <form>
-                        <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Votre nom">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card floating-card">
+                        <div class="service-icon">
+                            <i class="fas fa-bullhorn"></i>
                         </div>
-                        <div class="mb-3">
-                            <input type="email" class="form-control" placeholder="Votre email">
+                        <h5 class="mb-3">Marketing Digital</h5>
+                        <p class="text-muted mb-0">Boostez la visibilité de votre entreprise grâce à nos stratégies de
+                            marketing digital. SEO, publicité en ligne, gestion de réseaux sociaux... Nous vous aidons à
+                            atteindre les bonnes personnes, au bon moment.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card floating-card">
+                        <div class="service-icon">
+                            <i class="fas fa-tasks"></i>
                         </div>
-                        <div class="mb-3">
-                            <textarea class="form-control" rows="5" placeholder="Votre message"></textarea>
-                        </div>
-                        <button type="submit" class="custom-btn btn btn-primary w-100">Envoyer</button>
-                    </form>
+                        <h5 class="mb-3">Gestion de Projet IT</h5>
+                        <p class="text-muted mb-0">Vous avez un projet numérique en tête ? Nous vous accompagnons dans
+                            sa réalisation, en vous offrant un soutien complet à chaque étape : analyse des besoins,
+                            planification, développement et suivi.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<footer class="footer pt-5 mt-5 opacity-8 shadow-dark border-radius-lg p-3">
-    <div class="container">
-        <div class=" row">
-            <div class="col-md-2 mb-4 ms-auto  ">
-
-                <img src="{{ Storage::url('images/Omego_logo.png')}}" class="rounded " alt="Omega"
-                    style="width: 50px; height: 50px;">
-
-
-                <div class="mt-4">
-                    <ul class="d-flex flex-row ms-n3 nav">
-                        <li class="nav-item">
-                            <a class="nav-link pe-1" href="#">
-                                <i class="fab fa-facebook text-lg opacity-8"></i>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link pe-1" href="#">
-                                <i class="fab fa-twitter text-lg opacity-8"></i>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link pe-1" href="#">
-                                <i class="fab fa-dribbble text-lg opacity-8"></i>
-                            </a>
-                        </li>
-
-
-                        <li class="nav-item">
-                            <a class="nav-link pe-1" href="#">
-                                <i class="fab fa-github text-lg opacity-8"></i>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link pe-1" href="#">
-                                <i class="fab fa-youtube text-lg opacity-8"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+    <!-- Stats Section -->
+    <section class="py-6 bg-dark">
+        <div class="container">
+            <div class="row">
+                @foreach([['number' => '100+', 'label' => 'Projets Réalisés'], ['number' => '50+', 'label' => 'Clients Satisfaits'], ['number' => '5+', 'label' => 'Années d\'Excellence'], ['number' => '24/7', 'label' => 'Support Client']] as $stat)
+                    <div class="col-md-3" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
+                        <div class="stats-card">
+                            <div class="stats-number">{{ $stat['number'] }}</div>
+                            <p class="text-muted mb-0">{{ $stat['label'] }}</p>
+                        </div>
+                    </div>
+                @endforeach
             </div>
+        </div>
+    </section>
 
-
-
-
-
-            <div class="col-md-2 col-sm-6 col-6 mb-4">
-                <div>
-                    <h6 class="text-sm">Pages</h6>
-                    <ul class="flex-column ms-n3 nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/')}}">
-                                Accueill
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('pages/contact')}}">
-                                Nous Contactez
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('/pages/about')}}">
-                                Apropos de nous
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" btn btn-default btn-flat float-right"
-                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                <span>Deconnexion</span>
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="col-md-2 col-sm-6 col-6 mb-4">
-                <div>
-                    <h6 class="text-sm">services</h6>
-                    <ul class="flex-column ms-n3 nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                Formations
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                Marketing Digital
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                Apps
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                Webdesign
-                            </a>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-
-            <div class="col-md-2 col-sm-6 col-6 mb-4 me-auto">
-                <div>
-                    <h6 class="text-sm">Découvrir</h6>
-                    <ul class="flex-column ms-n3 nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('pages/actualite')">
-                                Actualités
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                Terms & Conditions
-                            </a>
-                        </li>
-
-
-                    </ul>
-                </div>
-            </div>
-
-            <div class="col-12">
-                <div class="text-center">
-                    <p class="text-dark my-4 text-sm font-weight-normal">
-                        All rights reserved. Copyright ©
-                        <script>document.write(new Date().getFullYear())</script> Menji DRC <a href="#">Structure</a>.
-                    </p>
+    <!-- Contact Section -->
+    <section id="contact" class="py-6">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <div class="contact-form">
+                        <h2 class="text-center gradient-text mb-4">Contactez Menji DRC</h2>
+                        <p class="text-center text-muted mb-5">
+                            Prêt à démarrer votre transformation numérique ?
+                            Notre équipe d'experts est là pour vous accompagner.
+                        </p>
+                        <form>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Votre nom">
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" placeholder="Votre email">
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" rows="5" placeholder="Votre message"></textarea>
+                            </div>
+                            <button type="submit" class="custom-btn btn btn-primary w-100">Envoyer</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</footer>
+    </section>
+
+    <footer class="footer pt-5 mt-5 opacity-8 shadow-dark border-radius-lg p-3">
+        <div class="container">
+            <div class=" row">
+                <div class="col-md-2 mb-4 ms-auto  ">
+
+                    <img src="{{ Storage::url('images/Omego_logo.png')}}" class="rounded " alt="Menji Drc"
+                        style="width: 50px; height: 50px;">
 
 
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script>
-    // Initialisation des animations
-    AOS.init({
-        duration: 800,
-        once: true
-    });
+                    <div class="mt-4">
+                        <ul class="d-flex flex-row ms-n3 nav">
+                            <li class="nav-item">
+                                <a class="nav-link pe-1" href="#">
+                                    <i class="fab fa-facebook text-lg opacity-8"></i>
+                                </a>
+                            </li>
 
-    // Effet de curseur personnalisé
-    document.addEventListener('mousemove', (e) => {
-        const cursor = document.querySelector('.mouse-cursor');
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-    });
+                            <li class="nav-item">
+                                <a class="nav-link pe-1" href="#">
+                                    <i class="fab fa-twitter text-lg opacity-8"></i>
+                                </a>
+                            </li>
 
-    // Effet 3D sur les cartes
-    document.querySelectorAll('.floating-card').forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+                            <li class="nav-item">
+                                <a class="nav-link pe-1" href="#">
+                                    <i class="fab fa-dribbble text-lg opacity-8"></i>
+                                </a>
+                            </li>
 
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
 
-            const rotateX = (y - centerY) / 10;
-            const rotateY = -(x - centerX) / 10;
+                            <li class="nav-item">
+                                <a class="nav-link pe-1" href="#">
+                                    <i class="fab fa-github text-lg opacity-8"></i>
+                                </a>
+                            </li>
 
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                            <li class="nav-item">
+                                <a class="nav-link pe-1" href="#">
+                                    <i class="fab fa-youtube text-lg opacity-8"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="col-md-2 col-sm-6 col-6 mb-4">
+                    <div>
+                        <h6 class="text-sm">Pages</h6>
+                        <ul class="flex-column ms-n3 nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/')}}">
+                                    Accueill
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('pages/contact')}}">
+                                    Nous Contactez
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('/pages/about')}}">
+                                    Apropos de nous
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" btn btn-default btn-flat float-right"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <span>Deconnexion</span>
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-2 col-sm-6 col-6 mb-4">
+                    <div>
+                        <h6 class="text-sm">services</h6>
+                        <ul class="flex-column ms-n3 nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Formations
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Marketing Digital
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Apps
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Webdesign
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-2 col-sm-6 col-6 mb-4 me-auto">
+                    <div>
+                        <h6 class="text-sm">Découvrir</h6>
+                        <ul class="flex-column ms-n3 nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('pages/actualite')">
+                                    Actualités
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Terms & Conditions
+                                </a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="text-center">
+                        <p class="text-dark my-4 text-sm font-weight-normal">
+                            All rights reserved. Copyright ©
+                            <script>document.write(new Date().getFullYear())</script> Menji DRC <a
+                                href="#">Structure</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Initialisation des animations
+        AOS.init({
+            duration: 800,
+            once: true
         });
 
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+        // Effet de curseur personnalisé
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.querySelector('.mouse-cursor');
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
         });
-    });
-</script>
 
-<body>
+        // Effet 3D sur les cartes
+        document.querySelectorAll('.floating-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
 
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = (y - centerY) / 10;
+                const rotateY = -(x - centerX) / 10;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+            });
+        });
+    </script>
 </body>
 
 </html>
