@@ -9,7 +9,7 @@
     <title>Menji DRC - Innovation Numérique</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('images/omego_logo.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('images/menjilogo.jpg') }}" type="image/png">
 
     <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
@@ -253,7 +253,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="{{ asset('images/omego_logo.png') }}" alt="Menji DRC" height="30">
+                <img src="{{ asset('images/menjilogo.jpg') }}" alt="Menji DRC" height="30">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -307,9 +307,10 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-6" data-aos="fade-left">
-                        <img src="{{ asset('images/hero-illustration.svg') }}" alt="Innovation" class="img-fluid">
+                    <div class="col-lg-6 d-flex justify-content-center" data-aos="fade-left">
+                        <img src="{{ asset('images/menjilogo.jpg') }}" alt="Innovation" class="img-fluid rounded-circle" style="width: 150px; height: auto;">
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -422,7 +423,8 @@
         </div>
     </section>
 
-    <footer class="footer pt-5 mt-5 opacity-8 shadow-dark border-radius-lg p-3">
+    <footer class="footer pt-5 mt-5 opacity-8 shadow-dark border-radius-lg p-3 bg-dark text-white">
+
         <div class="container">
             <div class=" row">
                 <div class="col-md-2 mb-4 ms-auto  ">
@@ -473,7 +475,7 @@
 
                 <div class="col-md-2 col-sm-6 col-6 mb-4">
                     <div>
-                        <h6 class="text-sm">Pages</h6>
+                        <h6 class="text-sm text-colo">Pages</h6>
                         <ul class="flex-column ms-n3 nav">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/')}}">
